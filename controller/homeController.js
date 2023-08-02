@@ -22,4 +22,34 @@ router.get('/', async (req, res) => {
     }
 });
 
+router.get('/post/:id', async (req, res) => {
+    try {
+        const postData = await Post.findByPk(req.params.id, {
+            include: [
+                {
+                    model: User,
+                    attributes: ['username'],
+                },
+                {
+                    model: Comment,
+                    attributes: ['comment_content', 'date_created', 'user_id'],
+                    include: {
+                        model: User,
+                        attributes: ['username'],
+                    },
+                },
+            ],
+        });
+
+        const post = postData.get({ plain: true });
+
+        res.render('post', {
+            post
+        })
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+ 
+
 module.exports = router;

@@ -6,26 +6,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - Phil's Tech Blog</title>
-    <!-- Add any other meta tags or CSS links you'd like -->
 </head>
 
 <body>
 
-    <!-- Navigation (You can adjust based on your site's design) -->
-    <nav>
-        <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/dashboard">Dashboard</a></li>
-            <!-- Only show logout if user is logged in -->
-            {{#if logged_in}}
-            <li><a href="/logout">Logout</a></li>
-            {{/if}}
-        </ul>
-    </nav>
-
     <!-- Login form -->
     <main>
         <h2>Login to Phil's Tech Blog</h2>
+        
+        <!-- Display the error message if there is one -->
+        {{#if error}}
+        <div class="error">
+            {{error}}
+        </div>
+        {{/if}}
+        
         <form action="/api/users/login" method="post">
             <div>
                 <label for="username">Username:</label>
@@ -39,9 +34,7 @@
         </form>
         <p>Don't have an account? <a href="/signup">Sign up now!</a></p>
     </main>
-
-    <!-- Add any footer or scripts you'd like -->
-
 </body>
-
+<script src="/js/login.js"></script>
+<script src="/js/logout.js"></script>
 </html>

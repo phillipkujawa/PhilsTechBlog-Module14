@@ -1,27 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Signup - Phil's Tech Blog</title>
-    <!-- Add any other meta tags or CSS links you'd like -->
-</head>
-
-<body>
-
-    <!-- Navigation (You can adjust based on your site's design) -->
-    <nav>
-        <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/dashboard">Dashboard</a></li>
-            <!-- Only show logout if user is logged in -->
-            {{#if logged_in}}
-            <li><a href="/logout">Logout</a></li>
-            {{/if}}
-        </ul>
-    </nav>
 
     <!-- Signup form -->
     <main>
@@ -42,9 +18,3 @@
             <button type="submit">Sign Up</button>
         </form>
     </main>
-
-    <!-- Add any footer or scripts you'd like -->
-
-</body>
-
-</html>

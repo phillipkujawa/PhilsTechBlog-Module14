@@ -1,7 +1,23 @@
-<!-- dashboard.handlebars -->
 <div class="container">
     <h2>Your Dashboard</h2>
 
+    <!-- Add Post Form -->
+    <div class="add-post-section">
+        <h3>Add a New Post</h3>
+        <form class="add-post-form">
+            <div>
+                <label for="post-title">Title:</label>
+                <input type="text" id="post-title" name="post-title" required>
+            </div>
+            <div>
+                <label for="post-content">Content:</label>
+                <textarea id="post-content" name="post-content" rows="5" required></textarea>
+            </div>
+            <button type="submit">Add Post</button>
+        </form>
+    </div>
+
+    <!-- Displaying existing posts -->
     {{#if posts.length}}
         <ul>
             {{#each posts}}
@@ -15,6 +31,7 @@
     {{else}}
         <p>You haven't created any posts yet.</p>
     {{/if}}
-
-    <a href="/dashboard/new">Create New Post</a>
 </div>
+
+<!-- Add your JS for handling the post submission -->
+<script src="/js/add-post.js"></script>

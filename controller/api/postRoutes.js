@@ -15,6 +15,21 @@ router.post('/', withAuth, async (req, res) => {
         res.status(400).json(err);
     }
 });
+//get user posts
+router.get('/user', withAuth, async (req, res) => {
+    try {
+        const userPostsData = await Post.findAll({
+            where: {
+                user_id: req.session.user_id,
+            }
+        });
+        const userPosts = userPostsData.map(post => post.get({ plain: true }));
+
+        res.status(200).json(userPosts);
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
 
 // Update a post
 router.put('/:id', withAuth, async (req, res) => {

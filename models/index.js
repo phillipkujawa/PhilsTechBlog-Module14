@@ -1,5 +1,5 @@
 const User = require("./User");
-const Post = reqiuire("./BlogPost");
+const Post = require("./BlogPost");
 const Comment = require("./Comment");
 
 // create associations

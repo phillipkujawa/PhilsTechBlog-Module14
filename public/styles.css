@@ -32,14 +32,29 @@ h1 {
 }
 
 .article {
-    background-color: #fff;
-    margin: 20px auto;
-    max-width: 800px;
+    border: 1px solid #ccc;
     padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    transition: box-shadow 0.3s;
 }
 
-.article:not(:last-child) {
-    margin-bottom: 30px;
+.article:hover {
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
 }
+
+.article h2 {
+    font-size: 30px; /* Increased font size for the title */
+    margin-bottom: 15px; /* More space between the title and content */
+    color: #333;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+}
+
+.article p {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.5;
+}
+

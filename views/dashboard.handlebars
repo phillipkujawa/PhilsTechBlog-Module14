@@ -22,9 +22,10 @@
         <ul>
             {{#each posts}}
                 <li>
-                    <h3>{{this.title}}</h3>
-                    <p>{{this.content}}</p>
-                    <a href="/dashboard/edit/{{this.id}}">Edit</a> | <a href="/api/posts/delete/{{this.id}}">Delete</a>
+                    <h3>{{this.blogtitle}}</h3>
+                    <p>{{this.blogcontent}}</p>
+                    <a href="/dashboard/edit/{{this.id}}">Edit</a> | <a href="#" class="delete-post-btn" data-id="{{this.id}}">Delete</a>
+
                 </li>
             {{/each}}
         </ul>
@@ -35,3 +36,4 @@
 
 <!-- Add your JS for handling the post submission -->
 <script src="/js/add-post.js"></script>
+<script src="/js/delete-post.js"></script>

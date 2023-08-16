@@ -1,7 +1,7 @@
 async function deletePostHandler(event) {
     event.preventDefault();
 
-    const id = window.location.toString().split('/').pop();
+    const id = event.target.getAttribute('data-id');
 
     const response = await fetch(`/api/posts/${id}`, {
         method: 'DELETE',
@@ -10,9 +10,16 @@ async function deletePostHandler(event) {
 
     if (response.ok) {
         document.location.replace('/dashboard');
+        console.log('Post deleted');
     } else {
         alert(response.statusText);
     }
 }
 
-document.querySelector('.delete-post-btn').addEventListener('click', deletePostHandler);
+// Get all the delete buttons
+const deleteButtons = document.querySelectorAll('.delete-post-btn');
+
+// Add event listener to each delete button
+deleteButtons.forEach(button => {
+    button.addEventListener('click', deletePostHandler);
+});

@@ -13,8 +13,8 @@ async function editPostHandler(event) {
         const response = await fetch(`/api/posts/${post_id}`, {
             method: 'PUT',
             body: JSON.stringify({
-                title: post_title,
-                content: post_content
+                blogtitle: post_title,
+                blogcontent: post_content
             }),
             headers: {
                 'Content-Type': 'application/json'

@@ -1,16 +1,23 @@
-const sequelize = require('sequelize');
+const Sequelize = require('sequelize');
 require('dotenv').config();
 
-// create connection to our db
-const sequelizeObject = new sequelize(
-    "techblog_db",
-    "root",
-    "Walcott34",
-    {
-        host: '192.168.1.55',
-        dialect: 'mysql',
-        port: 3306
-    }
-);
+let sequelizeObject;
+
+if (process.env.JAWSDB_URL) {
+    // If JAWSDB_URL is available, it's in the production environment.
+    sequelizeObject = new Sequelize(process.env.JAWSDB_URL);
+} else {
+    // Otherwise, it's in the development environment.
+    sequelizeObject = new Sequelize(
+        process.env.DB_NAME,
+        process.env.DB_USER,
+        process.env.DB_PASS,
+        {
+            host: '192.168.1.55',
+            dialect: 'mysql',
+            port: 3306
+        }
+    );
+}
 
 module.exports = sequelizeObject;

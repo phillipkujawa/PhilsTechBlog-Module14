@@ -2,20 +2,22 @@ const router = require('express').Router();
 const { User } = require('../../models');
 
 // Signup
+// Signup
 router.post('/signup', async (req, res) => {
     try {
         const userData = await User.create(req.body);
-        
+
         req.session.save(() => {
             req.session.user_id = userData.id;
             req.session.logged_in = true;
-            
-            res.status(200).json(userData);
+
+            res.status(200).json({ message: 'User successfully registered!' });
         });
     } catch (err) {
-        res.status(400).json(err);
+        res.status(400).json({ message: 'Error registering user. Maybe the username or email already exists.' });
     }
 });
+
 
 // Login
 router.post('/login', async (req, res) => {
